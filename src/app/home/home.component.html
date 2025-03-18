@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Willkommen bei der PatientInnen-App</h1>
+
+  <div class="nav-buttons">
+    <button routerLink="/secure">Zum geschützten Bereich</button>
+
+    <ng-container *ngIf="!(authService.isLoggedIn() | async); else loggedIn">
+      <button (click)="login()">Mit Microsoft Entra ID anmelden</button>
+    </ng-container>
+
+    <ng-template #loggedIn>
+      <button (click)="logout()">Abmelden</button>
+    </ng-template>
+  </div>
+
+  <div class="info">
+    <p>
+      Der Zugriff auf den geschützten Bereich (/secure) erfordert eine Anmeldung über Microsoft Entra External ID.
+    </p>
+  </div>
+</div>
