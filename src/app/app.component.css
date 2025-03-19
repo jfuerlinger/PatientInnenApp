@@ -15,7 +15,7 @@
 
 /* Header-Styles */
 header {
-  background-color: var(--background-color);
+  background-color: var(--header-bg);
   color: var(--text-color);
   padding: 1rem 2rem;
   display: flex;
@@ -26,7 +26,7 @@ header {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .logo {
@@ -82,6 +82,35 @@ nav a.active {
   color: var(--primary-color);
 }
 
+/* Header Actions (für Dark Mode Toggle) */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark-theme .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 /* Main Content */
 main {
   flex: 1;
@@ -93,14 +122,36 @@ main {
 
 /* Footer */
 footer {
-  background-color: var(--background-color);
+  background-color: var(--footer-bg);
   color: var(--text-light);
   padding: 1rem 2rem;
   text-align: center;
-  border-top: 1px solid rgba(229, 231, 235, 0.8);
+  border-top: 1px solid var(--border-color);
 }
 
 footer p {
   margin: 0;
   font-size: 0.875rem;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  
+  header nav {
+    order: 3;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  nav ul {
+    justify-content: center;
+  }
+  
+  .header-actions {
+    margin-left: auto;
+  }
 }

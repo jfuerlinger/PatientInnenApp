@@ -178,6 +178,12 @@
         <li><a routerLink="/secure" routerLinkActive="active">Geschützter Bereich</a></li>
       </ul>
     </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" (click)="toggleDarkMode()" aria-label="Theme wechseln">
+        <i *ngIf="isDarkMode" class="fas fa-sun"></i>
+        <i *ngIf="!isDarkMode" class="fas fa-moon"></i>
+      </button>
+    </div>
   </header>
 
   <main>
